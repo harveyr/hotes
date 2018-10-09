@@ -1,29 +1,60 @@
-'use strict';
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+'use strict'
+import * as vscode from 'vscode'
+import * as articles from './articles'
+import * as docs from './docs'
+import * as filenames from './filenames'
+import * as images from './images'
+import * as search from './search'
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  console.log('Hotes activating')
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "hotes" is now active!');
+  docs.scan()
 
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-        // The code you place here will be executed every time your command is executed
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      'extension.showIndex',
+      search.showMarkdownIndex,
+    ),
+  )
 
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
-    });
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      'extension.searchHotes',
+      search.markdownQuickPick,
+    ),
+  )
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      'extension.insertLink',
+      search.insertFileLink,
+    ),
+  )
 
-    context.subscriptions.push(disposable);
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      'extension.addArticle',
+      articles.addArticle,
+    ),
+  )
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand('extension.addImage', images.addImage),
+  )
+
+  vscode.workspace.onDidSaveTextDocument(doc => {
+    filenames
+      .updateFileName(doc)
+      .then(docs.scanFile)
+      .then(newDoc => {
+        if (newDoc && newDoc.fileName !== doc.fileName) {
+          docs.updateLinks(doc.fileName, newDoc.fileName)
+        }
+      })
+  })
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {
-}
+export function deactivate() {}
