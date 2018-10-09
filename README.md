@@ -1,4 +1,4 @@
-# hotes README
+# Hotes (Harvey's Notes)
 
 This is an experimental [VS Code](https://code.visualstudio.com/) extension. The
 goal is to streamline my personal note-taking in markdown. For the time being
@@ -13,9 +13,15 @@ try the simplest, most portable, most durable approach: a bunch of markdown
 files!
 
 But I'm not ready to give up on the niceties some of those tools provide, such
-as wiki-style linking between docs and easy image insertion.
+as wiki-style linking between docs and easy image insertion. I also don't want
+to saddle myself to another framework like org mode or vimwiki.
 
-Hence this project, to see how much work it'd be to find a best-of-both-worlds compromise.
+Hence this project, to see how much work it'd be to find a best-of-all-worlds compromise.
+
+Note that I almost bailed on this approach until I tried the excellent
+[Markdown Support for Visual Studio Code](https://github.com/neilsustc/vscode-markdown),
+which makes editing markdown in vscode just as nice as (if not nicer than) any
+of those tools listed above.
 
 ## Features
 
@@ -57,4 +63,4 @@ Tags: (to be added manually)
 
 For example, a markdown file with a header `# Fascinating Article about (Doorknobs)!` will be auto-named `fascinating-article-about-doorknobs.md`.
 
-Keeping the filenames in sync with the doc titles aids in `Ctrl-P` searching.
+Keeping the filenames in sync with the doc titles aids in `Ctrl-P` searching, among other things.
