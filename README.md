@@ -10,7 +10,7 @@ I take a lot of notes. After devoting substantial time to [Dropbox
 Paper](https://www.dropbox.com/paper), [Notion.so](https://www.notion.so),
 [Bear](https://bear.app/), [Evernote](https://evernote.com/), etc., I wanted to
 try the simplest, most portable, most durable approach: a bunch of markdown
-files.
+files!
 
 But I'm not ready to give up on the niceties some of those tools provide, such
 as wiki-style linking between docs and easy image insertion.
@@ -19,7 +19,7 @@ Hence this project, to see how much work it'd be to find a best-of-both-worlds c
 
 ## Features
 
-**Insert links between pages**
+### Insert links between pages
 
 Provides a command to create a link to between pages that will actually work in the editor when clicked on. For example:
 
@@ -27,17 +27,17 @@ Provides a command to create a link to between pages that will actually work in 
 [Some Good Stuff](../bad-stuff/some-good-stuff.md)
 ```
 
-**Document index**
+### Document index
 
 Find `#tags` in docs and build up a browsable index of them with links to docs.
 
-**Add images to notes**
+### Add images to notes
 
 Provides a quick-picker of the images in my screenshots directory. Upon selection, it will copy the file into my `Notes/Images` folder with a unique name and insert a link to the image (`![alt](/Notes/Images/123456789.png)`) into the doc.
 
 That naming approach prevents images from showing up in `Ctrl-P` searching.
 
-**Create note templates for web articles**
+### Create note templates for web articles
 
 Enter a URL, get a markdown template that looks like:
 
@@ -53,7 +53,7 @@ Tags: (to be added manually)
 ### ... go here
 ```
 
-**Auto-rename markdown files**
+### Auto-rename markdown files
 
 For example, a markdown file with a header `# Fascinating Article about (Doorknobs)!` will be auto-named `fascinating-article-about-doorknobs.md`.
 
