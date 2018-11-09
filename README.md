@@ -64,3 +64,7 @@ Tags: (to be added manually)
 For example, a markdown file with a header `# Fascinating Article about (Doorknobs)!` will be auto-named `fascinating-article-about-doorknobs.md`.
 
 Keeping the filenames in sync with the doc titles aids in `Ctrl-P` searching, among other things.
+
+## TODO
+
+- [ ] Try Azure pipeline for tests https://code.visualstudio.com/docs/extensions/testing-extensions

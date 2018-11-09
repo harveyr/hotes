@@ -2,6 +2,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as vscode from 'vscode'
 import * as dates from './dates'
+import * as edits from './edits'
 import * as schema from './schema'
 import * as paths from './paths'
 
@@ -42,15 +43,7 @@ export function addImage() {
 
     const link = `![Alt](/${destRelPath})`
 
-    vscode.window.showInputBox({
-      value: link,
-      prompt: 'Image link',
-    })
-
-    // if (vscode.window.activeTextEditor) {
-    //   const edit = new vscode.TextEdit(new vscode.Range(0, 0), link)
-    //   vscode.window.activeTextEditor.edit(edit)
-    // }
+    edits.insertText(link)
 
     const disposable = vscode.window.setStatusBarMessage(
       `Wrote image to ${destRelPath}`,
