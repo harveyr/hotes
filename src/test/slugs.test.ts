@@ -11,5 +11,7 @@ suite('Slugify Tests', function() {
     assert.equal('asdf-123', slugify('Asdf: (123)!* ~'))
     assert.equal('asdf-123', slugify('Asdf: (123)!* ~ @'))
     assert.equal('asdf-123', slugify('Asdf / 123'), 'slash handling')
+    assert.equal('asdf-123', slugify('Asdf / 123?'), 'question mark')
+    assert.equal('asdf-123', slugify('Asdf, 123?'), 'comma')
   })
 })
